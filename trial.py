@@ -3,7 +3,7 @@
     "Eto yung  function na ilalagay"
     1. Route Type = (Done) - Kevin
     2. Gas Price for (PH) - Jeric (DONE)
-    3. Has Ferry - Joey (Done)
+    3. Has Ferry - Joey
     4. Bounding Box - Chloe
     5. Use Traffic = Gawing aware yung user na hindi traffic based yung system - Jeric (DONE)
 """
@@ -51,12 +51,9 @@ while True:
 
         for each in json_data["route"]["legs"][0]["maneuvers"]:
             print((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"]) * 1.61) + " km)"))
-        print("=============================================")
+        print("=============================================\n")
         print("Route type: " + json_data['route']['options']['routeType'])
-        print("=============================================")
-        print("Need Ferry: " + str(json_data['route']['hasFerry']))
-        print("=============================================")
-        print("END OF ANALYSIS\n")
+        print("=============================================\n")
 
 
     elif json_status == 402:
@@ -73,8 +70,9 @@ while True:
         print("https://developer.mapquest.com/documentation/directions-api/status-codes")
         print("************************************************************************\n")
 
-        
-
+"""
+gwapojeric
+"""
 
 
 
