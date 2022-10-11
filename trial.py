@@ -4,7 +4,7 @@
     1. Route Type = (Done) - Kevin
     2. Gas Price for (PH) - Jeric (DONE)
     3. Has Ferry - Joey (Done)
-    4. Bounding Box - Chloe
+    4. Bounding Box - Chloe (DONE)
     5. Use Traffic = Gawing aware yung user na hindi traffic based yung system - Jeric (DONE)
 """
 import urllib.parse
@@ -44,6 +44,10 @@ while True:
               str("{:.2f}".format((json_data["route"]["fuelUsed"]) * 3.78)))
         print("Diesel total price: " +
               str("{:.2f}".format((json_data["route"]["fuelUsed"]) * 3.78 * 71.700)) + "php")
+        print("Longitude & Latitude of Starting Point: " +
+              str(json_data["route"]["boundingBox"]["ul"]).strip("{}"))
+        print("Longitude & Latitude of Destination Point: " +
+              str(json_data["route"]["boundingBox"]["lr"]).strip("{}"))
 
         print("=============================================")
 
