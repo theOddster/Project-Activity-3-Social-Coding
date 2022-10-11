@@ -1,3 +1,12 @@
+
+"""
+    "Eto yung  function na ilalagay"
+    1. Route Type = (Done) - Kevin
+    2. Gas Price for (PH) - Jeric
+    3. Has Ferry - Joey
+    4. Bounding Box - Chloe
+    5. Use Traffic = Gawing aware yung user na hindi traffic based yung system - Jeric
+"""
 import urllib.parse
 import requests
 main_api = "https://www.mapquestapi.com/directions/v2/route?"
@@ -28,6 +37,10 @@ while True:
         for each in json_data["route"]["legs"][0]["maneuvers"]:
             print((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"]) * 1.61) + " km)"))
         print("=============================================\n")
+        print("Route type: " + json_data['route']['options']['routeType'])
+        print("=============================================\n")
+
+
     elif json_status == 402:
         print("**********************************************")
         print("Status Code: " + str(json_status) + "; Invalid user inputs for one or both locations.")
@@ -41,6 +54,7 @@ while True:
         print("For Status Code: " + str(json_status) + "; Refer to:")
         print("https://developer.mapquest.com/documentation/directions-api/status-codes")
         print("************************************************************************\n")
+
         
 
 
