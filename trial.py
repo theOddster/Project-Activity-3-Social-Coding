@@ -42,7 +42,7 @@ while True:
         print("https://developer.mapquest.com/documentation/directions-api/status-codes")
         print("************************************************************************\n")
 
-//AmazingJeric
+
 
 
 
