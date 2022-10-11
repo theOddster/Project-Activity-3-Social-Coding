@@ -1,2 +1,0 @@
-GwapoKo
-kapag sinapak
