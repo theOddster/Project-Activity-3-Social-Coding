@@ -9,6 +9,9 @@
 """
 import urllib.parse
 import requests
+import colorama
+from colorama import Fore, Back, Style
+colorama.init()
 main_api = "https://www.mapquestapi.com/directions/v2/route?"
 key = "rKYdRUvO2kk0NiNjlQnZ5r9Hm0dALE3f"
 
@@ -25,7 +28,7 @@ while True:
     json_status = json_data["info"]["statuscode"]
     if json_status == 0:
         print("API Status: " + str(json_status) + " = A successful route call.\n")
-        print("=============================================")
+        print("Calculating Directions...")
 
         if json_data["route"]["options"]["useTraffic"] == False:
             print("**********************************************")
@@ -35,7 +38,7 @@ while True:
             print("**********************************************")
             print("Accurate traffic info.")
             print("**********************************************\n")
-
+        print(Fore.YELLOW + "=============================================")
         print("Directions from " + (orig) + " to " + (dest))
         print("Trip Duration: " + (json_data["route"]["formattedTime"]))
         print("Kilometers: " +
@@ -48,12 +51,14 @@ while True:
               str(json_data["route"]["boundingBox"]["ul"]).strip("{}"))
         print("Longitude & Latitude of Destination Point: " +
               str(json_data["route"]["boundingBox"]["lr"]).strip("{}"))
-
         print("=============================================")
+        print('\033[39m')
 
+        print(Fore.CYAN +"=============================================")
         for each in json_data["route"]["legs"][0]["maneuvers"]:
             print((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"]) * 1.61) + " km)"))
         print("=============================================")
+        print('\033[39m')
         print("Route type: " + json_data['route']['options']['routeType'])
         print("=============================================")
         print("Need Ferry: " + str(json_data['route']['hasFerry']))
