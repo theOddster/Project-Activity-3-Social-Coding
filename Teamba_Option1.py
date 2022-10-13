@@ -1,11 +1,15 @@
 
 """
-    "Eto yung  function na ilalagay"
+    Functions
     1. Route Type
     2. Gas Price for (PH) 
     3. Has Ferry
     4. Bounding Box 
-    5. Use Traffic 
+    5. Use Traffic
+    
+    Future Enhancements
+    1. Route Type User Input (Display correct directions)
+    2. Enhance the UI further
 """
 import urllib.parse
 import requests
