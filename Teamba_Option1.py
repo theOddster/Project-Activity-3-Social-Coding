@@ -1,11 +1,15 @@
 
 """
-    "Eto yung  function na ilalagay"
-    1. Route Type = (Done) - Kevin
-    2. Gas Price for (PH) - Jeric (DONE)
-    3. Has Ferry - Joey (Done)
-    4. Bounding Box - Chloe (DONE)
-    5. Use Traffic = Gawing aware yung user na hindi traffic based yung system - Jeric (DONE)
+    Functions
+    1. Route Type
+    2. Gas Price for (PH) 
+    3. Has Ferry
+    4. Bounding Box 
+    5. Use Traffic
+    
+    Future Enhancements
+    1. Route Type User Input (Display correct directions)
+    2. Enhance the UI further
 """
 import urllib.parse
 import requests
