@@ -59,6 +59,7 @@ while True:
             print((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"]) * 1.61) + " km)"))
         print("=============================================")
         print('\033[39m')
+
         print("Route type: " + json_data['route']['options']['routeType'])
         print("=============================================")
         print("Need Ferry: " + str(json_data['route']['hasFerry']))
@@ -66,15 +67,18 @@ while True:
         print("END OF ANALYSIS\n")
 
     elif json_status == 402:
-        print("**********************************************")
+        print(Fore.RED + "**********************************************")
         print("Status Code: " + str(json_status) + "; Invalid user inputs for one or both locations.")
         print("**********************************************\n")
+        print('\033[39m')
     elif json_status == 611:
-        print("**********************************************")
+        print(Fore.RED + "**********************************************")
         print("Status Code: " + str(json_status) + "; Missing an entry for one or both locations.")
         print("**********************************************\n")
+        print('\033[39m')
     else:
-        print("************************************************************************")
+        print(Fore.RED + "************************************************************************")
         print("For Status Code: " + str(json_status) + "; Refer to:")
         print("https://developer.mapquest.com/documentation/directions-api/status-codes")
         print("************************************************************************\n")
+        print('\033[39m')
