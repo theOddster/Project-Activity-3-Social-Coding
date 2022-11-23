@@ -1,16 +1,3 @@
-
-"""
-    Functions
-    1. Route Type
-    2. Gas Price for (PH) 
-    3. Has Ferry
-    4. Bounding Box 
-    5. Use Traffic
-    SS
-    Future Enhancements
-    1. Route Type User Input (Display correct directions)
-    2. Enhance the UI further
-"""
 import urllib.parse
 import requests
 import colorama
@@ -18,14 +5,22 @@ from colorama import Fore, Back, Style
 colorama.init()
 main_api = "https://www.mapquestapi.com/directions/v2/route?"
 key = "rKYdRUvO2kk0NiNjlQnZ5r9Hm0dALE3f"
-
 while True:
     orig = input("Starting Location: ")
+    system = ""
     if orig == "quit" or orig == "q":
         break
     dest = input("Destination: ")
     if orig == "quit" or orig == "q":
         break
+    while True:
+        system = input("Choose type of abbreviation (M for Miles) (K for Kilometers): ")
+        system.lower()
+        if system != "m" and system != "k":
+            print("Please choose either M or K")
+        else:
+            break
+
     url = main_api + urllib.parse.urlencode({"key": key, "from": orig, "to": dest})
     print("URL: " + (url))
     json_data = requests.get(url).json()
@@ -48,12 +43,8 @@ while True:
         print("Trip Duration: " + (json_data["route"]["formattedTime"]))
         print("Kilometers: " +
               str("{:.2f}".format((json_data["route"]["distance"]) * 1.61)))
-        """
-        print("Fuel Used (Ltr): " +
-              str("{:.2f}".format((json_data["route"]["fuelUsed"]) * 3.78)))
-        print("Diesel total price: " +
-              str("{:.2f}".format((json_data["route"]["fuelUsed"]) * 3.78 * 71.700)) + "php")
-        """
+        print("Miles: " +
+              str("{:.2f}".format((json_data["route"]["distance"]))))
         print("Longitude & Latitude of Starting Point: " +
               str(json_data["route"]["boundingBox"]["ul"]).strip("{}"))
         print("Longitude & Latitude of Destination Point: " +
@@ -62,8 +53,17 @@ while True:
         print('\033[39m')
 
         print(Fore.CYAN +"=============================================")
+        count = 1
         for each in json_data["route"]["legs"][0]["maneuvers"]:
-            print((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"]) * 1.61) + " km)"))
+            if system == "m":
+                print(Fore.CYAN + str(count), ": ", end='')
+                print((Fore.CYAN + each["narrative"]) + " (" + str("{:.2f}".format((each[ "distance"])) + " miles)"))
+                print("Direction Name: " + str(each['directionName']))
+                count = count + 1
+            elif system == "k":
+                print(Fore.CYAN + str(count), ": ", end='')
+                print((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"]) * 1.61) + " km)"))
+                count = count + 1
         print("=============================================")
         print('\033[39m')
 
