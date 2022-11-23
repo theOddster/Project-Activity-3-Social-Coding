@@ -6,7 +6,7 @@
     3. Has Ferry
     4. Bounding Box 
     5. Use Traffic
-    SSS
+    SS
     Future Enhancements
     1. Route Type User Input (Display correct directions)
     2. Enhance the UI further
