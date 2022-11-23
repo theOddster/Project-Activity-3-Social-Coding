@@ -42,15 +42,18 @@ while True:
             print("**********************************************")
             print("Accurate traffic info.")
             print("**********************************************\n")
+
         print(Fore.YELLOW + "=============================================")
         print("Directions from " + (orig) + " to " + (dest))
         print("Trip Duration: " + (json_data["route"]["formattedTime"]))
         print("Kilometers: " +
               str("{:.2f}".format((json_data["route"]["distance"]) * 1.61)))
+        """
         print("Fuel Used (Ltr): " +
               str("{:.2f}".format((json_data["route"]["fuelUsed"]) * 3.78)))
         print("Diesel total price: " +
               str("{:.2f}".format((json_data["route"]["fuelUsed"]) * 3.78 * 71.700)) + "php")
+        """
         print("Longitude & Latitude of Starting Point: " +
               str(json_data["route"]["boundingBox"]["ul"]).strip("{}"))
         print("Longitude & Latitude of Destination Point: " +
@@ -75,11 +78,13 @@ while True:
         print("Status Code: " + str(json_status) + "; Invalid user inputs for one or both locations.")
         print("**********************************************\n")
         print('\033[39m')
+
     elif json_status == 611:
         print(Fore.RED + "**********************************************")
         print("Status Code: " + str(json_status) + "; Missing an entry for one or both locations.")
         print("**********************************************\n")
         print('\033[39m')
+
     else:
         print(Fore.RED + "************************************************************************")
         print("For Status Code: " + str(json_status) + "; Refer to:")
