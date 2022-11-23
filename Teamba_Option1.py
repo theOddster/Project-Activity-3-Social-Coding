@@ -63,6 +63,7 @@ while True:
             elif system == "k":
                 print(Fore.CYAN + str(count), ": ", end='')
                 print((each["narrative"]) + " (" + str("{:.2f}".format((each["distance"]) * 1.61) + " km)"))
+                print("Direction Name: " + str(each['directionName']))
                 count = count + 1
         print("=============================================")
         print('\033[39m')
