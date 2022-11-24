@@ -14,10 +14,10 @@ while True:
     if orig == "quit" or orig == "q":
         break
     while True:
-        system = input("Choose type of abbreviation (M for Miles) (K for Kilometers): ")
+        system = input("Choose type of abbreviation (m for Miles) (k for Kilometers): ")
         system.lower()
         if system != "m" and system != "k":
-            print("Please choose either M or K")
+            print("Please choose either m or k")
         else:
             break
 
